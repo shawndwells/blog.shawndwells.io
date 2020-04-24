@@ -72,9 +72,9 @@ The paperwork states DRBG is implemented in accordance with NIST 800–90A. Trul
 
 Reading a bit further, on page 14 we encounter section “6.1 Random Number Generation.” This is where the paperwork talks nerdy and provides details about how the approved Deterministic Random Bits Generator (DRBG) is implemented. The section starts on page 14, which reads:
 
-```
+`````
 The DRBG is initialized during module initialization. The module loads by default the DRBG using HMAC DRBG with SHA-512, with derivation function, without prediction resistance. The DRBG is seeded during initialization with a seed obtained from /dev/urandom of length 3/2 times the DRBG strength. Please note that /dev/urandom is an NDRNG located within the module’s physical boundary but outside its logical boundary.
-```
+`````
 
 Readers are then presented with a table that indicates these ``/dev/urandom`` seeds adhere to [NIST 800–90A](https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final). That is the “Recommendation for Random Number Generation Using Deterministic Random Bit Generators.” Note this is a *recommendation*, not a *standard*.
 
@@ -116,17 +116,19 @@ $ sed -i '/^ExecStart/ s/$/ -r \/dev\/urandom/' \
 ```
 
 3. Before enabling anything, run a quick benchmark for non-rngd:
+
 ```shell
 $ dd if=/dev/urandom of=/dev/null bs=1024 count=1000000 iflag=fullblock
+
 1000000+0 records in
 1000000+0 records out
 1024000000 bytes (1.0 GB) copied, 73.8034 s, 13.9 MB/s
 ```
 
 And for we can use ``rngtest`` to review if the randomness of data meets FIPS 140–2 standards:
-
 ```shell
 $ cat /dev/urandom | rngtest -c 100000
+
 rngtest 5
 Copyright (c) 2004 by Henrique de Moraes Holschuh
 This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -147,7 +149,9 @@ rngtest: Program run time: 22628591 microseconds
 4. Enable rngd:
 ```shell
 $ sudo systemctl start rngd
+
 $ sudo systemctl status rngd
+
 ● rngd.service - Hardware RNG Entropy Gatherer Daemon
     Loaded: loaded (/usr/lib/systemd/system/rngd.service; enabled; vendor preset: enabled)
     Active: active (running) since Sat 2017-05-13 05:46:40 EDT; 7s ago
@@ -161,6 +165,7 @@ $ sudo systemctl status rngd
  5. Re-run the dd test:
  ```shell
 $ dd if=/dev/urandom of=/dev/null bs=1024 count=1000000 iflag=fullblock
+
 1000000+0 records in
 1000000+0 records out
 1024000000 bytes (1.0 GB) copied, 88.9843 s, 11.5 MB/s
