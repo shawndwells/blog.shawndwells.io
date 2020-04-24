@@ -3,7 +3,7 @@ layout: post
 title:  "Configuring Ansible Tower for DoD CAC and ECA PKI"
 author: shawn
 categories: [ work, ansible, how-to ]
-image: assets/ansible-tower-cac.jpeg
+image: assets/images/ansible-tower-cac.jpeg
 tags: [sticky]
 ---
 
