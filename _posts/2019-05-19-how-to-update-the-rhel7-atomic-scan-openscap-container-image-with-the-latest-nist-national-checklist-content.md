@@ -2,7 +2,7 @@
 layout: post
 title:  "How to Update the RHEL 7 Atomic Scan / OpenSCAP Container Image with the Latest NIST National Checklist Content"
 author: shawn
-categories: [ work, scap, how to ]
+categories: [ work, scap, how-to ]
 image: assets/images/nist-ncp-logo.png
 tags: featured
 ---
