@@ -4,6 +4,7 @@ title:  "Do RHEL Containers Inherit Security Compliance from the Host?"
 author: shawn
 categories: [ work, security, scap, nist, containers, compliance ]
 image: assets/images/containers-host-blog-logo.png
+tags: featured
 ---
 
 Recently an OpenShift deployment within the U.S. Department of Defense asked if container images would inherit security compliance settings from their container host. There is documentation — through blogs and vendor content — eluding security control inheritance being possible. Unfortunately, details seem scarce, and content is frequently overly generalized.
