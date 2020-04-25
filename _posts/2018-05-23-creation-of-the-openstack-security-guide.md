@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Creation of the OpenStack Security Guide"
-author: sal
+author: shawn
 categories: [ work, security, openstack ]
-image: /assets/images/openstack-security-guide-cover.png
+image: assets/images/openstack-security-guide-cover.png
 ---
 Factoring all moving components of OpenStack, the rapid release cycles, and the sheer complexity of large deployments, OpenStack security information was decentralized and obsoleted every one or two releases (case in point: Nova networking vs Quantum Neutron). To aid the community and provide practical hardening guidance, the [OpenStack Security Group](https://launchpad.net/~openstack-ossg) aspired to create a book that would assist system administrators in hardening their installations. Here’s how we did it.
 
